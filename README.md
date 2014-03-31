@@ -5,7 +5,7 @@ Boilerplate for quick webapp prototyping with AngularJS. The whole webapp lives 
 
 * *index.html* base code -- obvious
 * *css/js dependencies* (AngularJS, bootstrap) -- via cdn in `index.html`
-* *modules* for AngularJS -- in just `<script>` tags in `index.html``
+* *modules* for AngularJS -- in just `<script>` tags in `index.html`
 * *partials* for these -- using `<script type="text/ng-template">` in `index.html`
 
 The AngularJS project structure is roughly oriented on [ngBoilerplate](http://joshdmiller.github.io/ng-boilerplate/) with the following implications:
@@ -17,8 +17,8 @@ The AngularJS project structure is roughly oriented on [ngBoilerplate](http://jo
 Getting Started
 ---------------
 
-    $ git clone https://github.com/dominikschreiber/ngPrototypeBoilerplate
-	$ cd ngPrototypeBoilerplate && %EDITOR% index.html
+    $ git clone https://github.com/dominikschreiber/ngPrototypeBoilerplate.git
+	$ cd ngPrototypeBoilerplate && $EDITOR index.html
 	
 That's it.
 

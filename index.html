@@ -1,0 +1,82 @@
+<!-- ngPrototypeBoilerplate v0.0.1 by @domischreib -->
+<!doctype html>
+
+<html ng-app="app" ng-controller="MetaCtrl">
+
+<head>
+	<title ng-bind="meta.title()"></title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	<meta name="fragment" content="!">
+
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<style>
+
+	</style>
+</head>
+    
+<body>
+	<div ng-view></div>
+
+	<script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.4/angular.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.4/angular-route.min.js"></script>
+	<!-- ===== app meta view ==================================== -->
+	<script id="app/app.js">
+	angular.module('app', ['metaService', 'ng', 'ngRoute'])
+
+	.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+		$routeProvider.otherwise({
+			redirectTo: '/'
+		});
+		$locationProvider.html5Mode(false);
+		$locationProvider.hashPrefix('!');
+	}])
+
+	.controller('MetaCtrl', ['meta', '$scope', function(meta, $scope) {
+		$scope.meta = meta;
+	}]);
+	</script>
+	<!-- ===== landing page view ================================ -->
+	<script id="landingPage/landingPage.js">
+	angular.module('landingPage', ['metaService', 'ng', 'ngRoute'])
+	
+	.config(['$routeProvider', function($routeProvider) {
+		$routeProvider.when('/', {
+			controller: 'LandingPageCtrl',
+			templateUrl: 'landingPage/landing-page.tpl.html'
+		})
+	}])
+	
+	.controller('LandingPageCtrl', ['meta', '$scope', function(meta, $scope) {
+		
+	}]);
+	</script>
+	<script type="text/ng-template" id="landingPage/landing-page.tpl.html">
+	
+	</script>
+	<!-- ===== meta service ===================================== -->
+	<script id="metaService/metaService.js">
+	angular.module('metaService', ['ng'])
+
+	.factory('meta', [function() {
+		var title = {
+				prefix: undefined,
+				suffix: undefined,
+				separator: ' | '
+			};
+
+		return {
+			title: function() {
+				return [title.prefix, title.suffix].filter(function(elem) { return elem !== undefined; }).join(title.separator);
+			},
+			setTitlePrefix: function(prefix) { title.prefix = prefix },
+			setTitleSuffix: function(suffix) { title.suffix = suffix }
+		};
+	}])
+	</script>
+</body>
+
+</html>

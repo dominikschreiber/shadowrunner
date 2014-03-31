@@ -17,8 +17,10 @@ The AngularJS project structure is roughly oriented on [ngBoilerplate](http://jo
 Getting Started
 ---------------
 
-    $ git clone https://github.com/dominikschreiber/ngPrototypeBoilerplate.git
-	$ cd ngPrototypeBoilerplate && $EDITOR index.html
+```bash
+$ git clone https://github.com/dominikschreiber/ngPrototypeBoilerplate.git
+$ cd ngPrototypeBoilerplate && $EDITOR index.html
+```
 	
 That's it.
 
@@ -27,26 +29,28 @@ Moving on
 
 Create AngularJS modules for every view (= url path) you need, configure the `$routeProvider` to use the right controller and templateUrl for this view and add a dependency to the module in the `app` module.
 
-    <script id="yourAwesomeView/yourAwesomeView.js">
-    angular.module('yourAwesomeView', ['ng', 'ngRoute'])
-	.config(['$routeProvider', function($routeProvider) {
-		$routeProvider.when('/the/awesome/', {
-			controller: 'AwesomeCtrl',
-			templateUrl: 'yourAwesomeView/your-awesome-view.tpl.html'
-		});
-	}])
-	.controller('AwesomeCtrl', ['$scope', function($scope) {
-		$scope.awesome = 'you';
-		// do that awesome stuff here
-	}]);
-	</script>
-	<script type="text/ng-template">
-	<p>Who is awesome?</p>
-	<h1>{{awesome}}</h1>
-	</script>
-	<script id="app/app.js">
-	angular.module('app', ['yourAwesomeView', // ...])
-	</script>
+```html
+<script id="yourAwesomeView/yourAwesomeView.js">
+angular.module('yourAwesomeView', ['ng', 'ngRoute'])
+.config(['$routeProvider', function($routeProvider) {
+	$routeProvider.when('/the/awesome/', {
+		controller: 'AwesomeCtrl',
+		templateUrl: 'yourAwesomeView/your-awesome-view.tpl.html'
+	});
+}])
+.controller('AwesomeCtrl', ['$scope', function($scope) {
+	$scope.awesome = 'you';
+	// do that awesome stuff here
+}]);
+</script>
+<script type="text/ng-template" id="yourAwesomeView/your-awesome-view.tpl.html">
+<p>Who is awesome?</p>
+<h1>{{awesome}}</h1>
+</script>
+<script id="app/app.js">
+angular.module('app', ['yourAwesomeView', // ...])
+</script>
+```
 
 Also, create AngularJS modules for every directive/filter/service you need, let them do your awesome stuff inside, and add dependencies in the view modules that need them.
 

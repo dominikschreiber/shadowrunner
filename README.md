@@ -30,6 +30,7 @@ Moving on
 Create AngularJS modules for every view (= url path) you need, configure the `$routeProvider` to use the right controller and templateUrl for this view and add a dependency to the module in the `app` module.
 
 ```html
+<!-- ===== your awesome view ================ -->
 <script id="yourAwesomeView/yourAwesomeView.js">
 angular.module('yourAwesomeView', ['ng', 'ngRoute'])
 .config(['$routeProvider', function($routeProvider) {
@@ -43,10 +44,12 @@ angular.module('yourAwesomeView', ['ng', 'ngRoute'])
 	// do that awesome stuff here
 }]);
 </script>
+<!-- ----- template for your view ----------- -->
 <script type="text/ng-template" id="yourAwesomeView/your-awesome-view.tpl.html">
 <p>Who is awesome?</p>
 <h1>{{awesome}}</h1>
 </script>
+<!-- ===== app meta view ==================== -->
 <script id="app/app.js">
 angular.module('app', ['yourAwesomeView', // ...])
 </script>

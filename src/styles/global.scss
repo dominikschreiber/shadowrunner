@@ -1,6 +1,11 @@
 @import 'variables.scss';
 
 body {
-  padding-top: 1.5rem;
   background-color: $background-color;
+}
+
+[ng-view] > .container > .row {
+  $margin: 30px;
+  margin-top: $margin;
+  margin-bottom: $margin;
 }

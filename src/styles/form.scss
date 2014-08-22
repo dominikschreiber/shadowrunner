@@ -8,6 +8,7 @@
 }
 
 .form-group {
+  margin-bottom: 0;
   border-bottom: 2px solid $content-color;
 }
 
@@ -25,5 +26,51 @@
     box-shadow: none;
     border-color: $content-color;
     background-color: $highlight-color;
+  }
+  
+  &[type='range'] {
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(white, 0);
+    
+    width: 100%;
+    background: $background-color;
+    
+    &::-ms-tooltip {
+      display: none;
+    }
+    
+    &::-webkit-slider-thumb {
+      $diameter: 20px;
+      $ratio: 0.23;
+      
+      -webkit-appearance: none;
+      position: relative;
+      margin-top: $diameter * $ratio;
+      width: $diameter;
+      height: $diameter * $ratio * 2;
+      background-color: $primary-color;
+      
+      &:before {
+        content: '';
+        position: absolute;
+        top: -$diameter * $ratio;
+        height: 0;
+        width: 0;
+        border-right: $diameter/2 solid transparent;
+        border-bottom: $diameter * $ratio solid $primary-color;
+        border-left: $diameter/2 solid transparent;
+      }
+      
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: -$diameter * $ratio;
+        height: 0;
+        width: 0;
+        border-right: $diameter/2 solid transparent;
+        border-left: $diameter/2 solid transparent;
+        border-top: $diameter * $ratio solid $primary-color;
+      }
+    }
   }
 }

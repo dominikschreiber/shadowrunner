@@ -1,8 +1,11 @@
 div.container
+
+  // ##########################################################################
   div.row
     div.col-sm-7
       a(href='/#!/')
         img.img-responsive(src='img/sr5-logo.png', alt='Shadowrun 5 Logo')
+        
     // ===== character overview ===============================================
     div.col-sm-5
       form.form-horizontal
@@ -18,6 +21,8 @@ div.container
           label.col-sm-4.control-label(for='notes') Anmerkungen
           div.col-sm-8
             input.form-control#notes(type='text', ng-model='$storage[id].info.notes')
+            
+  // ##########################################################################
   div.row
   
     // ===== box personal data ================================================
@@ -58,25 +63,26 @@ div.container
         div.form-group
           label.col-sm-2.control-label(for='street_cred') Straßenruf
           div.col-sm-1
-            input.form-control#street_cred(type='text', ng-model='$storage[id].personal_data.street_cred')
+            input.form-control#street_cred(type='number', ng-model='$storage[id].personal_data.street_cred')
           label.col-sm-3.control-label(for='notoriety') Schlechter Ruf
           div.col-sm-2
-            input.form-control#notoriety(type='text', ng-model='$storage[id].personal_data.notoriety')
+            input.form-control#notoriety(type='number', ng-model='$storage[id].personal_data.notoriety')
           label.col-sm-2.control-label(for='public_awareness') Prominenz
           div.col-sm-2
-            input.form-control#public_awareness(type='text', ng-model='$storage[id].personal_data.public_awareness')
+            input.form-control#public_awareness(type='number', ng-model='$storage[id].personal_data.public_awareness')
             
         // ----- line karma--total--misc --------------------------------------
         div.form-group
           label.col-sm-1.control-label(for='karma') Karma
           div.col-sm-2
-            input.form-control#karma(type='text', ng-model='$storage[id].personal_data.karma')
+            input.form-control#karma(type='number', ng-model='$storage[id].personal_data.karma')
           label.col-sm-3.control-label(for='total_karma') Gesamtkarma
           div.col-sm-2
-            input.form-control#total_karma(type='text', ng-model='$storage[id].personal_data.total_karma')
+            input.form-control#total_karma(type='number', ng-model='$storage[id].personal_data.total_karma')
           label.col-sm-2.control-label(for='misc') Sonstiges
           div.col-sm-2
             input.form-control#misc(type='text', ng-model='$storage[id].personal_data.misc')
+            
     // ===== box core combat info =============================================
     box.col-sm-6(title='Wichtige Kampfwerte')
       form.form-horizontal
@@ -120,3 +126,112 @@ div.container
             input.form-control(type='text', ng-model='$storage[id].core_combat_info.primary_melee_weapon.acc', placeholder='Präzision')
           div.col-xs-6.col-sm-3
             input.form-control(type='text', ng-model='$storage[id].core_combat_info.primary_melee_weapon.ap', placeholder='DK')
+  
+  // ##########################################################################
+  div.row
+  
+    // ===== box attributes ===================================================
+    box.col-sm-6(title='Attribute')
+      form.form-horizontal
+        
+        // ----- line body--essence -------------------------------------------
+        div.form-group
+          label.col-sm-3.control-label.text-primary(for='body') Konstitution
+          div.col-sm-3
+            input.form-control#body(type='number', ng-model='$storage[id].attributes.body')
+          label.col-sm-4.control-label(for='essence') Essenz
+          div.col-sm-2
+            input.form-control#essence(type='number', ng-model='$storage[id].attributes.essence')
+        
+        // ----- line agility--magic/resonance --------------------------------
+        div.form-group
+          label.col-sm-3.control-label.text-primary(for='agility') Geschicklichkeit
+          div.col-sm-3
+            input.form-control#agility(type='number', ng-model='$storage[id].attributes.agility')
+          label.col-sm-4.control-label(for='magic') Magie/Resonanz
+          div.col-sm-2
+            input.form-control#magic(type='number', ng-model='$storage[id].attributes.magic')
+        
+        // ----- line reaction--initiative ------------------------------------
+        div.form-group
+          label.col-sm-3.control-label.text-primary(for='reaction') Reaktion
+          div.col-sm-3
+            input.form-control#reaction(type='number', ng-model='$storage[id].attributes.reaction')
+          label.col-sm-4.control-label.text-primary(for='initiative') Initiative
+          div.col-sm-2
+            input.form-control#initiative(type='number', ng-model='$storage[id].attributes.initative')
+            
+        // ----- line strength--matrix initiative -----------------------------
+        div.form-group
+          label.col-sm-3.control-label.text-primary(for='strength') Stärke
+          div.col-sm-3
+            input.form-control#strength(type='number', ng-model='$storage[id].attributes.strength')
+          label.col-sm-4.control-label.text-primary(for='matrix_initiative') Matrix-Initiative
+          div.col-sm-2
+            input.form-control#matrix_initiative(type='number', ng-model='$storage[id].attributes.matrix_initiative')
+            
+        // ----- line willpower--astral initiative ----------------------------
+        div.form-group
+          label.col-sm-3.control-label(for='willpower') Willenskraft
+          div.col-sm-3
+            input.form-control#willpower(type='number', ng-model='$storage[id].attributes.willpower')
+          label.col-sm-4.control-label(for='astral_initiative') Astrale Initiative
+          div.col-sm-2
+            input.form-control#astral_initiative(type='number', ng-model='$storage[id].attributes.astral_initiative')
+            
+        // ----- line logic--composure ----------------------------------------
+        div.form-group
+          label.col-sm-3.control-label(for='logic') Logik
+          div.col-sm-3
+            input.form-control#logic(type='number', ng-model='$storage[id].attributes.logic')
+          label.col-sm-4.control-label(for='composure') Selbstbeherrschung
+          div.col-sm-2
+            input.form-control#composure(type='number', ng-model='$storage[id].attributes.composure')
+            
+        // ----- line intuition--judge intentions -----------------------------
+        div.form-group
+          label.col-sm-3.control-label(for='intuition') Intuition
+          div.col-sm-3
+            input.form-control#intuition(type='number', ng-model='$storage[id].attributes.intuition')
+          label.col-sm-4.control-label(for='judge_intentions') Menschenkenntnis
+          div.col-sm-2
+            input.form-control#judge_intentions(type='number', ng-model='$storage[id].attributes.judge_intentions')
+        
+        // ----- line charisma--memory ----------------------------------------
+        div.form-group
+          label.col-sm-3.control-label(for='charisma') Charisma
+          div.col-sm-3
+            input.form-control#charisma(type='number', ng-model='$storage[id].attributes.charisma')
+          label.col-sm-4.control-label(for='memory') Erinnerungsvermögen
+          div.col-sm-2
+            input.form-control#memory(type='number', ng-model='$storage[id].attributes.memory')
+        
+        // ----- line edge--lift/carry ----------------------------------------
+        div.form-group
+          label.col-sm-3.control-label(for='edge') Edge
+          div.col-sm-3
+            input.form-control#edge(type='number', ng-model='$storage[id].attributes.edge')
+          label.col-sm-4.control-label(for='lift_carry') Heben/Tragen
+          div.col-sm-2
+            input.form-control#lift_carry(type='number', ng-model='$storage[id].attributes.lift_carry')
+            
+        // ----- line edge points--movement -----------------------------------
+        div.form-group
+          label.col-sm-3.control-label(for='edge_points') Edgepunkte
+          div.col-sm-3
+            input.form-control#edge_points(type='range', min='0', max='8', value='0', ng-model='$storage[id].attributes.edge_points')
+          label.col-sm-3.control-label(for='movement') Bewegung
+          div.col-sm-3
+            input.form-control#movement(type='number', ng-model='$storage[id].attributes.movement')
+            
+        // ----- line physical limit--mental limit--social limit --------------
+        div.form-group
+          label.col-sm-3.control-label(for='physical_limit', style='padding-right:0') Körperl. Limit:
+          div.col-sm-1(style='padding-left:0;padding-right:0')
+            input.form-control#physical_limit(type='number', ng-model='$storage[id].attributes.physical_limit')
+          label.col-sm-3.control-label(for='mental_limit', style='padding-right:0') Geistiges Limit:
+          div.col-sm-1(style='padding-left:0;padding-right:0')
+            input.form-control#mental_limit(type='number', ng-model='$storage[id].attributes.mental_limit')
+          label.col-sm-3.control-label(for='social_limit') Soziales Limit:
+          div.col-sm-1(style='padding-left:0;padding-right:0')
+            input.form-control#social_limit(type='number', ng-model='$storage[id].attributes.social_limit')

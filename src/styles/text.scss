@@ -6,3 +6,13 @@
   font-weight: bold;
   text-transform: uppercase;
 }
+
+.text-primary {
+  &,
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    color: lighten($primary-color, 10%);
+  }
+}

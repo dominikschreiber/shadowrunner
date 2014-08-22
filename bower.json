@@ -1,0 +1,30 @@
+{
+  "name": "shadowrunners",
+  "version": "0.0.0",
+  "authors": [
+    "Dominik Schreiber <dominik@dominikschreiber.com>"
+  ],
+  "description": "web-based shadowrun runner management tool",
+  "keywords": [
+    "shadowrun"
+  ],
+  "license": "MIT",
+  "homepage": "dominikschreiber.github.io/shadowrunners",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "underscore": "~1.6.0",
+    "jquery": "~2.1.1",
+    "bootstrap": "~3.2.0",
+    "angular": "1.3.0-beta.18",
+    "angular-route": "1.3.0-beta.18",
+    "angular-bootstrap": "~0.11.0",
+    "bootstrap-sass": "~3.0.2",
+    "ngStorage": "https://github.com/gsklee/ngStorage.git"
+  }
+}

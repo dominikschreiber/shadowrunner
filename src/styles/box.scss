@@ -1,0 +1,112 @@
+@import 'variables.scss';
+@import 'text.scss';
+
+$accent-color: $primary-color;
+$triangle-width: 13px;
+$border-width: 2px;
+
+.box-title {
+  @extend .text-accent;
+  
+  position: relative;
+  margin: 0;
+  padding: 6px 8px 2px;
+  
+  color: $background-color-intense;
+  text-shadow: 0 0 1px rgba($content-color, .3);
+  background-color: $accent-color;
+}
+
+.box-content {
+  position: relative;
+  padding: 12px $triangle-width 0;// 24px;
+  border: $border-width solid $accent-color;
+  border-bottom-width: 0;
+  
+  // skewed edge (top left/top right)
+  &:before {
+    content: '';
+    position: absolute;
+    top: -$triangle-width + 0.5;
+    display: block;
+    height: 2 * $triangle-width - 0.5;
+    width: 2 * $triangle-width - 0.5;
+    border-left-width: $border-width;
+    border-left-style: solid;
+    border-color: $accent-color;
+    background-color: $background-color;
+  }
+  
+  // fadeout box borders
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -$border-width;
+    display: block;
+    height: calc(100% - 36px);
+    width: calc(100% + 2 * #{$border-width} + 1px);
+    background-image: linear-gradient(to bottom, transparent, $background-color);
+    z-index: 1;
+  }
+  
+  .box-inner-content {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.box {
+  .form-horizontal {
+    padding: 0 $triangle-width;
+  }
+  
+  &:nth-of-type(even) {
+    .box-title {
+      float: left;
+      
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: -2 * $triangle-width + 1;
+        height: 0;
+        width: 0;
+        border-right: $triangle-width solid transparent;
+        border-bottom: $triangle-width solid $accent-color;
+        border-left: $triangle-width solid $accent-color;
+        border-top: $triangle-width solid transparent;
+      }
+    }
+    
+    .box-content:before {
+      right: -$triangle-width + 0.5;
+      -webkit-transform: rotate(315deg); 
+    }
+  }
+  &:nth-of-type(odd) {
+    .box-title {
+      float: right;
+      
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: -2 * $triangle-width + 1;
+        height: 0;
+        width: 0;
+        border-right: $triangle-width solid $accent-color;
+        border-bottom: $triangle-width solid $accent-color;
+        border-left: $triangle-width solid transparent;
+        border-top: $triangle-width solid transparent;
+      }
+    }
+    
+    .box-content:before {
+      left: -$triangle-width + 0.5;
+      -webkit-transform: rotate(225deg);
+    }
+  }
+}

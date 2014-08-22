@@ -1,0 +1,15 @@
+doctype html
+html(lang='de', ng-app='app', ng-controller='MetaCtrl')
+  head
+    title(ng-bind='title')
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='fragment', content='!')
+    meta(name='description', content='{{meta.description()}}')
+    link(rel='stylesheet', href='css/style.css')
+    link(rel='icon', href='img/sr5-icon.png', sizes='96x96')
+  body
+    div(ng-view)
+    script(src='js/vendor.js')
+    script(src='js/templates.js')
+    script(src='js/app.js')

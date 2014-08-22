@@ -1,0 +1,5 @@
+div.container
+  div.row
+    div.col-sm-4.col-md-3(ng-repeat='(id, runner) in runners')
+      a(ng-href='/#!/r/{{id}}')
+        h3(ng-bind='runner.personal_data.alias')

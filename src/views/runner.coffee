@@ -15,6 +15,6 @@ angular.module 'runner', [
   
   # update page title accordingly
   $scope.$watch(
-    () -> $scope.$storage[$scope.id].info.character,
+    () -> $scope.$storage[$scope.id].personal_data.alias,
     (name) -> meta.setTitlePrefix name
   )

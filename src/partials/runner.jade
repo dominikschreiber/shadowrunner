@@ -3,6 +3,7 @@ div.container
     div.col-sm-7
       a(href='/#!/')
         img.img-responsive(src='img/sr5-logo.png', alt='Shadowrun 5 Logo')
+    // ===== character overview ===============================================
     div.col-sm-5
       form.form-horizontal
         div.form-group
@@ -18,14 +19,17 @@ div.container
           div.col-sm-8
             input.form-control#notes(type='text', ng-model='$storage[id].info.notes')
   div.row
+  
     // ===== box personal data ================================================
     box.col-sm-6(title='Persönliche Daten')
       form.form-horizontal
+      
         // ----- line name/primary alias---------------------------------------
         div.form-group
           label.col-sm-4.control-label(for='alias') Name/Strassenname
           div.col-sm-8
             input.form-control#alias(type='text', ng-model='$storage[id].personal_data.alias')
+            
         // ----- line metatype--ethnicity -------------------------------------
         div.form-group
           label.col-sm-2.control-label(for='metatype') Metatyp
@@ -34,6 +38,7 @@ div.container
           label.col-sm-2.control-label(for='ethnicity') Ethnie
           div.col-sm-4
             input.form-control#ethnicity(type='text', ng-model='$storage[id].personal_data.ethnicity')
+            
         // ----- line age--sex--height--weight --------------------------------
         div.form-group
           label.col-sm-1.control-label(for='age') Alter
@@ -48,6 +53,7 @@ div.container
           label.col-sm-2.control-label(for='weight') Gewicht
           div.col-sm-1(style='padding-left:0;padding-right:0')
             input.form-control#weight(type='text', ng-model='$storage[id].personal_data.weight')
+            
         // ----- line cred--notoriety--awareness ------------------------------
         div.form-group
           label.col-sm-2.control-label(for='street_cred') Straßenruf
@@ -59,6 +65,7 @@ div.container
           label.col-sm-2.control-label(for='public_awareness') Prominenz
           div.col-sm-2
             input.form-control#public_awareness(type='text', ng-model='$storage[id].personal_data.public_awareness')
+            
         // ----- line karma--total--misc --------------------------------------
         div.form-group
           label.col-sm-1.control-label(for='karma') Karma
@@ -70,4 +77,46 @@ div.container
           label.col-sm-2.control-label(for='misc') Sonstiges
           div.col-sm-2
             input.form-control#misc(type='text', ng-model='$storage[id].personal_data.misc')
-    box.col-sm-6(title='Wichtige Kampfwerte') nichts
+    // ===== box core combat info =============================================
+    box.col-sm-6(title='Wichtige Kampfwerte')
+      form.form-horizontal
+      
+        // ----- line primary armor -------------------------------------------
+        div.form-group
+          label.col-sm-2.control-label(for='primary_armor') Rüstung
+          div.col-sm-6
+            input.form-control#primary_armor(type='text', ng-model='$storage[id].core_combat_info.primary_armor')
+          div.col-sm-4
+            input.form-control#rating(type='text', ng-model='$storage[id].core_combat_info.rating', placeholder='Panzerungswert')
+            
+        // ----- line primary ranged weapon -----------------------------------
+        div.form-group
+          label.col-sm-3.control-label(for='primary_ranged_weapon') Fernkampfwaffe
+          div.col-sm-9
+            input.form-control#primary_ranged_weapon(type='text', ng-model='$storage[id].core_combat_info.primary_ranged_weapon.title')
+          div.col-xs-4.col-sm-2
+            input.form-control(type='text', ng-model='$storage[id].core_combat_info.primary_ranged_weapon.dam', placeholder='Schaden')
+          div.col-xs-4.col-sm-2
+            input.form-control(type='text', ng-model='$storage[id].core_combat_info.primary_ranged_weapon.acc', placeholder='Präzision')
+          div.col-xs-4.col-sm-2
+            input.form-control(type='text', ng-model='$storage[id].core_combat_info.primary_ranged_weapon.ap', placeholder='DK')
+          div.col-xs-4.col-sm-2
+            input.form-control(type='text', ng-model='$storage[id].core_combat_info.primary_ranged_weapon.mode', placeholder='Modus')
+          div.col-xs-4.col-sm-2
+            input.form-control(type='text', ng-model='$storage[id].core_combat_info.primary_ranged_weapon.rc', placeholder='RK')
+          div.col-xs-4.col-sm-2
+            input.form-control(type='text', ng-model='$storage[id].core_combat_info.primary_ranged_weapon.ammo', placeholder='Munition')
+            
+        // ----- line primary melee weapon ------------------------------------
+        div.form-group
+          label.col-sm-3.control-label(for='primary_melee_weapon') Nahkampfwaffe
+          div.col-sm-9
+            input.form-control#primary_melee_weapon(type='text', ng-model='$storage[id].core_combat_info.primary_melee_weapon')
+          div.col-xs-6.col-sm-3
+            input.form-control(type='text', ng-model='$storage[id].core_combat_info.primary_melee_weapon.reach', placeholder='Reichweite')
+          div.col-xs-6.col-sm-3
+            input.form-control(type='text', ng-model='$storage[id].core_combat_info.primary_melee_weapon.dam', placeholder='Schaden')
+          div.col-xs-6.col-sm-3
+            input.form-control(type='text', ng-model='$storage[id].core_combat_info.primary_melee_weapon.acc', placeholder='Präzision')
+          div.col-xs-6.col-sm-3
+            input.form-control(type='text', ng-model='$storage[id].core_combat_info.primary_melee_weapon.ap', placeholder='DK')
